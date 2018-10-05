@@ -25,5 +25,11 @@ router.put('/:id', async (req, res) => {
   res.send(creature)
 })
 
+// DELETE
+router.delete('/:id', async (req, res) => {
+  await Creature.findByIdAndRemove(req.params.id)
+  res.sendStatus(200)
+})
+
 
 module.exports = router;
