@@ -13,5 +13,11 @@ router.get('/:id', async (req, res) => {
   res.send(creature)
 })
 
+// CREATE
+router.post('/', async (req, res) => {
+  const creature = await Creature.create(req.body)
+  res.send(creature)
+})
+
 
 module.exports = router;
