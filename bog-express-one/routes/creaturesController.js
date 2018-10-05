@@ -19,5 +19,11 @@ router.post('/', async (req, res) => {
   res.send(creature)
 })
 
+// UPDATE
+router.put('/:id', async (req, res) => {
+  const creature = await Creature.findByIdAndUpdate(req.params.id, req.body, { new: true })
+  res.send(creature)
+})
+
 
 module.exports = router;
