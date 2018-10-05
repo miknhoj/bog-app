@@ -17,9 +17,6 @@ connection.on('error', (err) => {
   console.log('Mongoose default connection error: ' + err);
 });
 
-const indexRouter = require('./routes');
-const usersRouter = require('./routes/users');
-
 // INSTANTIATING EXPRESS AND ADDING MIDDLEWARE
 const app = express();
 
@@ -30,7 +27,8 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 // ROUTES
-app.use('/', indexRouter);
-app.use('/users', usersRouter);
+const creaturesRouter = require('./routes/creaturesController');
+app.use('/api/creatures', creaturesRouter);
+
 
 module.exports = app;
