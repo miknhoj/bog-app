@@ -1,3 +1,4 @@
+// IMPORTING DEPENDENCIES
 require('dotenv').config() 
 const express = require('express');
 const path = require('path');
@@ -18,7 +19,7 @@ connection.on('error', (err) => {
 const indexRouter = require('./routes');
 const usersRouter = require('./routes/users');
 
-
+// INSTANTIATING EXPRESS AND ADDING MIDDLEWARE
 const app = express();
 
 app.use(logger('dev'));
@@ -27,6 +28,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+// ROUTES
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 
