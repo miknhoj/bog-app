@@ -7,12 +7,10 @@ class App extends Component {
   render() {
     return (
       <Router>
-        <div>
           <Switch>
             <Route exact path='/' component={Creatures} />
             <Route exact path='/:id' component={SingleCreature}/>
           </Switch>
-        </div>
       </Router>
     );
   }
